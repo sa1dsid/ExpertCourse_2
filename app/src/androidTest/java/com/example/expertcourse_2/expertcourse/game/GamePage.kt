@@ -6,28 +6,35 @@ import org.hamcrest.Matcher
 import androidx.test.espresso.matcher.ViewMatchers.*
 import com.example.expertcourse_2.R
 
-class GamePage(word: String ) {
+class GamePage(word: String) {
 
     //region fields
 
     private val containerIdMatcher: Matcher<View> = withParent(withId(R.id.rootLayout))
-    private val containerClassTypeMatcher: Matcher<View> = withParent(isAssignableFrom(
-        LinearLayout::class.java))
+    private val containerClassTypeMatcher: Matcher<View> = withParent(
+        isAssignableFrom(
+            LinearLayout::class.java
+        )
+    )
 
-    private val shuffleWord = ShuffleWordUi(text = word,
+    private val shuffleWord = ShuffleWordUi(
+        text = word,
         containerIdMatcher = containerIdMatcher,
-        containerClassTypeMatcher = R)
+        containerClassTypeMatcher = containerClassTypeMatcher
+    )
 
     private val inputUi = InputUi(
         containerIdMatcher = containerIdMatcher,
-        containerClassTypeMatcher = containerClassTypeMatcher)
+        containerClassTypeMatcher = containerClassTypeMatcher
+    )
 
     private val skipUi = ButtonUi(
         id = R.id.skipButton,
         colorHex = "#FFF100",
         textResId = R.string.skip,
         containerIdMatcher = containerIdMatcher,
-        containerClassTypeMatcher = containerClassTypeMatcher)
+        containerClassTypeMatcher = containerClassTypeMatcher
+    )
 
 
     private val nextUi = ButtonUi(
@@ -35,7 +42,8 @@ class GamePage(word: String ) {
         colorHex = "#3BE6FA",
         textResId = R.string.next,
         containerIdMatcher = containerIdMatcher,
-        containerClassTypeMatcher = containerClassTypeMatcher)
+        containerClassTypeMatcher = containerClassTypeMatcher
+    )
 
     private val checkUi = CheckButtonUi(
         containerIdMatcher = containerIdMatcher,
@@ -64,7 +72,7 @@ class GamePage(word: String ) {
 
     fun insufficientInputState() {
         shuffleWord.assertTextVisible()
-        inputUi.assertSufficientInputState()
+        inputUi.assertInsufficientInputState()
         skipUi.assertVisible()
         checkUi.assertVisibleDisabled()
         nextUi.assertNotVisible()
@@ -101,7 +109,6 @@ class GamePage(word: String ) {
     fun initialState() {
         inputUi.initialState()
     }
-
 
 
 }

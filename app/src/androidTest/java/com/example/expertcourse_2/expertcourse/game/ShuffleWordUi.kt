@@ -14,8 +14,7 @@ import org.hamcrest.Matcher
 import com.example.expertcourse_2.R
 
 
-
-class ShuffleWordUi (
+class ShuffleWordUi(
     text: String,
     containerIdMatcher: Matcher<View>,
     containerClassTypeMatcher: Matcher<View>

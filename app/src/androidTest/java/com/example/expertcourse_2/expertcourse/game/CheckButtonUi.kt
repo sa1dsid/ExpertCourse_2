@@ -17,7 +17,7 @@ import com.example.expertcourse_2.R
 class CheckButtonUi(
     containerIdMatcher: Matcher<View>,
     containerClassTypeMatcher: Matcher<View>
-): AbstractButtonUi(
+) : AbstractButtonUi(
     onView(
         allOf(
             withId(R.id.checkButton),
@@ -28,7 +28,7 @@ class CheckButtonUi(
             containerClassTypeMatcher
         )
     )
-){
+) {
     fun assertVisibleDisabled() {
         interaction.check(matches(ViewMatchers.isNotEnabled()))
             .check(matches(isCompletelyDisplayed()))

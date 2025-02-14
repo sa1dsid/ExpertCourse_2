@@ -22,7 +22,7 @@ class ScenarioTest {
 
     @Before
     fun setup(){
-        gamePage = GamePage(word = "animal".reversed(), R = R)
+        gamePage = GamePage(word = "animal".reversed())
     }
 
     /**
