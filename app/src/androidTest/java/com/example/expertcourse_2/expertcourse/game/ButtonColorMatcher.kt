@@ -7,10 +7,10 @@ import android.widget.Button
 import androidx.test.espresso.matcher.BoundedMatcher
 import org.hamcrest.Description
 
-class ButtonColorMatcher(private val color: Int):
+class ButtonColorMatcher(private val color: Int) :
     BoundedMatcher<View, Button>(Button::class.java) {
 
-        constructor(colorString: String) : this(Color.parseColor(colorString))
+    constructor(colorString: String) : this(Color.parseColor(colorString))
 
 
     override fun matchesSafely(item: Button?): Boolean {

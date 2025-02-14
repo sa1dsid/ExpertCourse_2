@@ -23,10 +23,10 @@ import org.hamcrest.Matcher
 import com.example.expertcourse_2.R
 import com.google.android.material.textfield.TextInputLayout
 
-class InputUi (
+class InputUi(
     containerIdMatcher: Matcher<View>,
     containerClassTypeMatcher: Matcher<View>
-){
+) {
 
     private val layoutInteraction: ViewInteraction = onView(
         allOf(
@@ -47,8 +47,8 @@ class InputUi (
     )
 
     fun assertInitialState() {
-        layoutInteraction.check(matches(ViewMatchers.isEnabled())).
-        check(matches(TextInputLayoutErrorEnabledMatcher(false)))
+        layoutInteraction.check(matches(ViewMatchers.isEnabled()))
+            .check(matches(TextInputLayoutErrorEnabledMatcher(false)))
         inputInteraction.check(matches(withText("")))
     }
 
@@ -58,23 +58,23 @@ class InputUi (
     }
 
     fun assertSufficientInputState() {
-        layoutInteraction.check(matches(ViewMatchers.isEnabled())).
-        check(matches(TextInputLayoutErrorEnabledMatcher(false)))
+        layoutInteraction.check(matches(ViewMatchers.isEnabled()))
+            .check(matches(TextInputLayoutErrorEnabledMatcher(false)))
     }
 
     fun assertCorrectState() {
-        layoutInteraction.check(matches(ViewMatchers.isNotEnabled())).
-        check(matches(TextInputLayoutErrorEnabledMatcher(false)))
+        layoutInteraction.check(matches(ViewMatchers.isNotEnabled()))
+            .check(matches(TextInputLayoutErrorEnabledMatcher(false)))
     }
 
     fun assertIncorrectState() {
-        layoutInteraction.check(matches(ViewMatchers.isEnabled())).
-        check(matches(TextInputLayoutErrorEnabledMatcher(true)))
+        layoutInteraction.check(matches(ViewMatchers.isEnabled()))
+            .check(matches(TextInputLayoutErrorEnabledMatcher(true)))
     }
 
     fun initialState() {
-        layoutInteraction.check(matches(ViewMatchers.isEnabled())).
-        check(matches(TextInputLayoutErrorEnabledMatcher(false)))
+        layoutInteraction.check(matches(ViewMatchers.isEnabled()))
+            .check(matches(TextInputLayoutErrorEnabledMatcher(false)))
     }
 
     fun removeInputLastLetter() {

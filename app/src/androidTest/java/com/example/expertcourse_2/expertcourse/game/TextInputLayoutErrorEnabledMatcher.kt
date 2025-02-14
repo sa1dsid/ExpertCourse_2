@@ -7,7 +7,7 @@ import com.google.android.material.textfield.TextInputLayout
 import org.hamcrest.Description
 
 
-class TextInputLayoutErrorEnabledMatcher(private val expectingEnabled: Boolean):
+class TextInputLayoutErrorEnabledMatcher(private val expectingEnabled: Boolean) :
     BoundedMatcher<View, TextInputLayout>(TextInputLayout::class.java) {
 
     override fun describeTo(description: Description?) {
@@ -15,7 +15,7 @@ class TextInputLayoutErrorEnabledMatcher(private val expectingEnabled: Boolean):
     }
 
     override fun matchesSafely(item: TextInputLayout?): Boolean {
-            return item!!.isErrorEnabled == expectingEnabled
+        return item!!.isErrorEnabled == expectingEnabled
     }
 
 }
