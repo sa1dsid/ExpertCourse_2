@@ -1,14 +1,11 @@
-package com.example.expertcourse
+package com.example.expertcourse_2.expertcourse
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.expertcourse.game.GamePage
 import com.example.expertcourse_2.MainActivity
-import com.example.expertcourse_2.R
-
 import org.junit.Test
 import org.junit.runner.RunWith
-
 import org.junit.Before
 import org.junit.Rule
 
@@ -21,14 +18,11 @@ class ScenarioTest {
     private lateinit var gamePage: GamePage
 
     @Before
-    fun setup(){
-        gamePage = GamePage(word = "animal".reversed(), R = R)
+    fun setup() {
+        gamePage = GamePage(word = "animal".reversed())
     }
 
-    /**
-     * UG-01
-     */
-
+    /** UG-01 */
     @Test
     fun testcase1() {
 
@@ -43,10 +37,7 @@ class ScenarioTest {
         gamePage.clickNext()
     }
 
-    /**
-     * UG-02
-     */
-
+    /** UG-02 */
     @Test
     fun testcase2() {
 
@@ -66,10 +57,7 @@ class ScenarioTest {
 
     }
 
-    /**
-     * UG-03
-     */
-
+    /** UG-03 */
     @Test
     fun testcase3() {
 
