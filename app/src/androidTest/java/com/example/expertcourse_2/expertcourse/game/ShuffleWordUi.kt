@@ -7,6 +7,7 @@ import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.isEnabled
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.CoreMatchers.allOf
@@ -14,8 +15,7 @@ import org.hamcrest.Matcher
 import com.example.expertcourse_2.R
 
 
-
-class ShuffleWordUi (
+class ShuffleWordUi(
     text: String,
     containerIdMatcher: Matcher<View>,
     containerClassTypeMatcher: Matcher<View>
@@ -34,5 +34,4 @@ class ShuffleWordUi (
     fun assertTextVisible() {
         interaction.check(matches(isCompletelyDisplayed()))
     }
-
 }

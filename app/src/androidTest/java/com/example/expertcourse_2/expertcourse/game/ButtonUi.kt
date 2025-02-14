@@ -20,7 +20,7 @@ class ButtonUi(
     @StringRes textResId: Int,
     containerIdMatcher: Matcher<View>,
     containerClassTypeMatcher: Matcher<View>
-): AbstractButtonUi(
+) : AbstractButtonUi(
     onView(
         allOf(
             withId(id),
@@ -33,8 +33,6 @@ class ButtonUi(
 
     )
 )
-
-
 
 
 abstract class AbstractButtonUi(

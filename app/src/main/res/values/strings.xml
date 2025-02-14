@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ExpertCourse_2</string>
+    <string name="skip">skip</string>
+    <string name="next">next</string>
+    <string name="check">check</string>
+    <string name="incorrect_message">Incorrect!</string>
+    <string name="empty" />
 </resources>

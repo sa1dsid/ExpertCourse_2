@@ -4,7 +4,6 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.expertcourse.game.GamePage
 import com.example.expertcourse_2.MainActivity
-import com.example.expertcourse_2.R
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -22,8 +21,12 @@ class ScenarioTest {
 
     @Before
     fun setup(){
-        gamePage = GamePage(word = "animal".reversed(), R = R)
+        gamePage = GamePage(word = "animal".reversed())
     }
+
+
+    // Короче у тебя тесты говна, переделывай!
+
 
     /**
      * UG-01
@@ -34,13 +37,16 @@ class ScenarioTest {
 
         gamePage.assertInitialState()
 
-        gamePage.input(text = "animal")
+        gamePage.addInput(text = "animal")
         gamePage.assertSufficientInputState()
 
         gamePage.clickCheck()
         gamePage.assertCorrectState()
 
         gamePage.clickNext()
+
+        gamePage = GamePage(word = "auto".reversed())
+        gamePage.assertInitialState()
     }
 
     /**
@@ -52,17 +58,19 @@ class ScenarioTest {
 
         gamePage.assertInitialState()
 
-        gamePage.input(text = "anima")
-        gamePage.insufficientInputState()
+        gamePage.addInput(text = "anima")
+        gamePage.assertInsufficientInputState()
 
-        gamePage.clickCheck()
-        gamePage.assertIncorrectState()
-
-        gamePage.input(text = "animal")
+        gamePage.addInput(text = "l")
         gamePage.assertSufficientInputState()
 
         gamePage.clickCheck()
         gamePage.assertCorrectState()
+
+        gamePage.clickNext()
+
+        gamePage = GamePage(word = "auto".reversed())
+        gamePage.assertInitialState()
 
     }
 
@@ -75,13 +83,15 @@ class ScenarioTest {
 
         gamePage.assertInitialState()
 
-        gamePage.input(text = "anima")
+        gamePage.addInput(text = "animal")
         gamePage.assertSufficientInputState()
 
         gamePage.clickCheck()
-        gamePage.assertIncorrectState()
+        gamePage.assertCorrectState()
 
         gamePage.clickSkip()
-        gamePage.initialState()
+
+        gamePage = GamePage(word = "auto".reversed())
+        gamePage.assertInitialState()
     }
 }

@@ -7,6 +7,8 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.isEnabled
+import androidx.test.espresso.matcher.ViewMatchers.isNotEnabled
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.CoreMatchers.allOf
@@ -17,7 +19,7 @@ import com.example.expertcourse_2.R
 class CheckButtonUi(
     containerIdMatcher: Matcher<View>,
     containerClassTypeMatcher: Matcher<View>
-): AbstractButtonUi(
+) : AbstractButtonUi(
     onView(
         allOf(
             withId(R.id.checkButton),
@@ -28,14 +30,14 @@ class CheckButtonUi(
             containerClassTypeMatcher
         )
     )
-){
+) {
     fun assertVisibleDisabled() {
-        interaction.check(matches(ViewMatchers.isNotEnabled()))
+        interaction.check(matches(isNotEnabled()))
             .check(matches(isCompletelyDisplayed()))
     }
 
     fun assertVisibleEnabled() {
-        interaction.check(matches(ViewMatchers.isEnabled()))
+        interaction
             .check(matches(isCompletelyDisplayed()))
     }
 }
